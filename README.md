@@ -1,7 +1,5 @@
-Intro to Machine Learning
-==================
+# Machine Learning Series
 
-Brought to you by [Lesley Cordero](http://www.columbia.edu/~lc2958), [Byte Academy](byteacademy.co), and [ADI](adicu.com).
 
 ## Table of Contents
 
@@ -44,41 +42,14 @@ Brought to you by [Lesley Cordero](http://www.columbia.edu/~lc2958), [Byte Acade
 + [6.1 Resources](#61-resources)
 + [6.2 Mini Courses](#62-mini-courses)
 
+========================================================================
+
+
+# Intro to Machine Learning 
+
 ## 0.0 Setup
 
-This guide was written in R 3.2.3.
-
-### 0.1 R and R Studio
-
-Install [R](https://www.r-project.org/) and [R Studio](https://www.rstudio.com/products/rstudio/download/).
-
-Next, to install the R packages, cd into your workspace, and enter the following, very simple, command into your bash: 
-
-```
-R
-```
-
-This will prompt a session in R! From here, you can install any needed packages. For the sake of this tutorial, enter the following into your terminal R session:
-
-```
-install.packages("ggplot2")
-install.packages("caret")
-```
-
-### 0.2 Virtual Environment
-
-If you'd like to work in a virtual environment, you can set it up as follows:
-
-```
-pip3 install virtualenv
-virtualenv your_env
-```
-
-And then launch it with:
-
-```
-source your_env/bin/activate
-```
+This guide was written in Python 3.6.
 
 ## 1.0 Introduction
 
@@ -212,95 +183,8 @@ When you’re doing machine learning, specifically supervised learning, you’re
 
 With that said, we'll go through what this process generally looks like. In the exercise, I intentionally keep the underlying function hidden from you because we never know the underlying function in practice. Once again, machine learning provides us with a set of statistical tools for estimate <i>f(x)</i>.
 
-So we begin with getting our data:
-
-``` R
-df.unknown_fxn_data <- read.csv(url("http://www.sharpsightlabs.com/wp-content/uploads/2016/04/unknown_fxn_data.txt"))
 ```
-
-#### 4.3.1 Exploratory Analysis
-
-Now we’ll perform some basic data exploration. First, we’ll use `str()` to examine the “structure” of the data:
-
-``` R
-str(df.unknown_fxn_data)
-```
-
-Which gets us two variables, `input_var` and `target_var`. 
-
-``` bash
-'data.frame':	28 obs. of  2 variables:
-$ input_var : num  -2.75 -2.55 -2.35 -2.15 -1.95 -1.75 -1.55 -1.35 -1.15 -0.95 ...
-$ target_var: num  -0.224 -0.832 -0.543 -0.725 -1.026 ...
-```
-
-Next, let’s print out the first few rows of the dataset using the head() function.
-
-``` R
-head(df.unknown_fxn_data)
-```
-
-You can think of the two columns as (x,y) pairs.
-
-#### 4.3.2 Data Visualization
-
-Now, let’s examine the data visually. Since `input_var` is an independent variable, we can plot it on the x-axis and `target_var` on the y-axis. And since these are (x, y) pairs, we'll use a scatterplot to visualize it.
-
-``` R
-require(ggplot2)
-ggplot(data = df.unknown_fxn_data, aes(x = input_var, y = target_var)) +
-geom_point()
-```
-
-This is important because by plotting the data visually, we can visually detect a pattern which we can later use to compare to our estimated function.
-
-#### 4.3.3 Linear Model
-
-Now that we’ve explored our data, we’ll create a very simple linear model using caret. Here, the `train()` function is the “core” function of the caret package, which builds the machine learning model. 
-
-Inside of the `train()` function, we’re using `df.unknown_fxn_data` for the data parameter. `target_var ~ input_var` specifies the “formula” of our model and indicates the target variable that we’re trying to predict as well as the predictor we’ll use as an input. The `method = "lm"` indicates that we want a linear regression model. 
-
-``` R
-require(caret)
-
-mod.lm <- train( target_var ~ input_var
-,data = df.unknown_fxn_data
-,method = "lm"
-)
-```
-
-Now that we’ve built the simple linear model using the `train()` function, let’s plot the data and plot the linear model on top of it.
-
-To do this, we’ll extract the slope and the intercept of our linear model using the `coef()` function.
-
-``` R
-coef.icept <- coef(mod.lm$finalModel)[1]
-coef.slope <- coef(mod.lm$finalModel)[2]
-```
-
-The following plots the data:
-
-``` R
-ggplot(data = df.unknown_fxn_data, aes(x = input_var, y = target_var)) +
-geom_point() +
-geom_abline(intercept = coef.icept, slope = coef.slope, color = "red")
-```
-
-As I mentioned in the beginning of this example, I kept the underlying function hidden, which was a sine function with some noise. When we began this exercise, there was a hidden function that generated the data and we used machine learning to estimate that function.
-
-``` R
-set.seed(9877)
-input_var <- seq(-2.75,2.75, by = .2)
-target_var <- sin(input_var) + rnorm(length(input_var), mean = 0, sd = .2)
-df.unknown_fxn_data <- data.frame(input_var, target_var)
-```
-
-Here, we just visualize that underlying function. 
-
-``` R
-ggplot(data = df.unknown_fxn_data, aes(x = input_var, y = target_var)) +
-geom_point() +
-stat_function(fun = sin, color = "navy", size = 1)
+This needs new code
 ```
 
 ### 4.4 Bias and Variance
@@ -385,26 +269,12 @@ What we've covered here is a very small glimpse of machine learning. Applying th
 [Stanford Coursera](https://www.coursera.org/learn/machine-learning) <br>
 [Math &cap; Programming](https://jeremykun.com/main-content/)
 
-### 6.2 Mini Courses
 
-Learn about courses [here](http://www.byteacademy.co/all-courses/data-science-mini-courses/).
-
-[Python 101: Data Science Prep](https://www.eventbrite.com/e/python-101-data-science-prep-tickets-30980459388) <br>
-[Intro to Data Science & Stats with R](https://www.eventbrite.com/e/data-sci-109-intro-to-data-science-statistics-using-r-tickets-30908877284) <br>
-[Data Acquisition Using Python & R](https://www.eventbrite.com/e/data-sci-203-data-acquisition-using-python-r-tickets-30980705123) <br>
-[Data Visualization with Python](https://www.eventbrite.com/e/data-sci-201-data-visualization-with-python-tickets-30980827489) <br>
-[Fundamentals of Machine Learning and Regression Analysis](https://www.eventbrite.com/e/data-sci-209-fundamentals-of-machine-learning-and-regression-analysis-tickets-30980917759) <br>
-[Natural Language Processing with Data Science](https://www.eventbrite.com/e/data-sci-210-natural-language-processing-with-data-science-tickets-30981006023) <br>
-[Machine Learning with Data Science](https://www.eventbrite.com/e/data-sci-309-machine-learning-with-data-science-tickets-30981154467) <br>
-[Databases & Big Data](https://www.eventbrite.com/e/data-sci-303-databases-big-data-tickets-30981182551) <br>
-[Deep Learning with Data Science](https://www.eventbrite.com/e/data-sci-403-deep-learning-with-data-science-tickets-30981221668) <br>
-[Data Sci 500: Projects](https://www.eventbrite.com/e/data-sci-500-projects-tickets-30981330995)
+========================================================================
 
 
-Machine Learning with Naive Bayes
-==================
+# Machine Learning with Naive Bayes
 
-Brought to you by [Lesley Cordero](http://www.columbia.edu/~lc2958).
 
 ## Table of Contents
 
@@ -946,10 +816,11 @@ Generative algorithms model `p(x, y)`, which can be tranformed into `p(y|x)` by 
 
 ### 5.1 Resources
 
-Machine Learning with Classification
-==================
 
-Brought to you by [Lesley Cordero](lesley2958.github.io).
+==========================================================================================
+
+
+# Machine Learning with Classification
 
 ## Table of Contents
 
@@ -1007,17 +878,6 @@ Then, on your command line, install the needed modules as follows:
 pip3 install sklearn
 ```
 
-### 0.3 Virtual Environment
-
-If you'd like to work in a virtual environment, you can set it up as follows: 
-```
-pip3 install virtualenv
-virtualenv your_env
-```
-And then launch it with: 
-```
-source your_env/bin/activate
-```
 
 ## 1.0 Introduction
 
@@ -1030,23 +890,7 @@ Throughout this tutorial we'll review different classification algorithms, but y
 
 Discriminant Analysis is a statistical technique used to classify data into groups based on each data point's features. 
 
-``` R
-library(dplyr)
-library(magrittr)
-olives <- readRDS("olives.RDS")
 
-split <- createDataPartition(y=olives$Region,
-p=0.80,
-list=FALSE)
-train <- olives[split,]
-test <- olives[-split,]
-```
-
-In R, there's a library called `MASS` that provides us with built-in functions to perform discriminant analysis. 
-
-``` R
-library(MASS)
-```
 
 ### 2.1 Linear Discriminant Analysis
 
@@ -1054,32 +898,12 @@ Linear Discriminant Analysis (LDA) is a linear classification algorithm used for
 
 LDA is similar to Principal Component Analysis (PCA), but LDA also considers the axes that maximize the separation between multiple classes. It works by finding the linear combinations of the original variables that gives the best separation between the groups in the data set. 
 
-``` R
-lda <- lda(train$Region ~ ., data=train[,3:10])
-plot(lda)
-```
 
-``` R
-train_predict <- predict(lda, train[,3:10])
-(t <- table(train$Region, train_predict$class))
-test_predict <- predict(lda, test[,3:10])
-(t <- table(test$Region, test_predict$class))
-```
 
 ### 2.2 Quadratic Discriminant Analysis
 
 Quadratic Discriminant Analysis, on the other hand, is used for heterogeneous variance-covariance matrices. Because QDA has more parameters to estimate, it's typically less accurate than LDA. 
 
-``` R
-qda <- qda(train$Region ~ ., data=train[,3:10])
-```
-
-``` R
-train_predict <- predict(qda, train[,3:10])
-(t <- table(train$Region, train_predict$class))
-test_predict <- predict(qda, test[,3:10])
-(t <- table(test$Region, test_predict$class))
-```
 
 ## 3.0 Support Vector Machines
 
@@ -1259,10 +1083,12 @@ SVMs largest stength is its effectiveness in high dimensional spaces, even when 
 Now, if we have a large dataset, the required time becomes high. SVMs also perform poorly when there's noise in the dataset. Lastly, SVM doesn’t directly provide probability estimates and must be calculated using an expensive five-fold cross-validation.
 
 
-Unsupervised Machine Learning
-==================
 
-Brought to you by [Lesley Cordero](http://www.columbia.edu/~lc2958), [Byte Academy](byteacademy.co), and [ADI](https://adicu.com). 
+========================================================================
+
+
+# Unsupervised Machine Learning
+
 
 ## Table of Contents
 
@@ -1277,7 +1103,7 @@ Brought to you by [Lesley Cordero](http://www.columbia.edu/~lc2958), [Byte Acade
 
 ## 0.0 Setup
 
-This guide was written in Python 3.5.
+This guide was written in Python 3.6.
 
 ### 0.1 Python and Pip
 
@@ -1507,10 +1333,11 @@ The most intuitive explanation is the idea of stability. If the clusters we obta
 
 We can also use penalization approaches, where we use different criterion such as AIC (Akaike Information Criterion) or BIC (Bayesian Information Criterion) to keep the value of k under control.
 
-Machine Learning & Tree Modeling
-==================
 
-Brought to you by [Lesley Cordero](http://www.columbia.edu/~lc2958), [Byte Academy](byteacademy.co), and [ADI](adicu.com).
+==========================================================================================
+
+# Machine Learning & Tree Modeling
+
 
 ## Table of Contents
 
@@ -1533,7 +1360,7 @@ Brought to you by [Lesley Cordero](http://www.columbia.edu/~lc2958), [Byte Acade
 
 ## 0.0 Setup
 
-TThis guide was written in Python 3.5.
+TThis guide was written in Python 3.6.
 
 ### 0.1 Python and Pip
 
@@ -1548,26 +1375,6 @@ pip3 install scipy
 pip3 install numpy
 ```
 
-### 0.3 R and RStudio
-
-Install [R](https://www.r-project.org/) and [R Studio](https://www.rstudio.com/products/rstudio/download/).
-
-Next, to install the R packages, cd into your workspace, and enter the following, very simple, command into your bash: 
-
-```
-R
-```
-
-This will prompt a session in R! From here, you can install any needed packages. For the sake of this tutorial, enter the following into your terminal R session:
-
-```
-install.packages("caret")
-install.packages("partykit")
-install.packages("party")
-install.packages("rpart")
-install.packages("randomForest")
-
-```
 
 ## 1.0 Background
 
@@ -1624,73 +1431,7 @@ A node, which is divided into sub-nodes is called parent node of sub-nodes where
 
 2. Not fit for continuous variables: While working with continuous numerical variables, decision tree looses information when it categorizes variables in different categories.
 
-### 2.1 Decision Trees in R
 
-We begin by loading the required libraries:
-
-``` R
-library(rpart)
-library(party)
-library(partykit)
-```
-
-In this example, we'll be working with credit scores, so we load the needed data:
-
-``` R
-library(caret)
-data(GermanCredit)
-```
-
-As always, we split the data into training and test data:
-
-``` R
-inTrain <- runif(nrow(GermanCredit)) < 0.2
-```
-
-Now, we can build the actual decision tree with `rpart()`. 
-
-``` R
-dt <- rpart(Class ~ Duration + Amount + Age, method="class",data=GermanCredit[inTrain,])
-```
-
-But let's check out the internals of this decision tree. Let's plot it using the `plot()` function: 
-
-``` R
-plot(dt)
-text(dt)
-```
-
-And to prettify it, we type:
-
-``` R
-plot(as.party(dt))
-```
-
-We obviously want to have the best machine learning models for our data. To make sure we have optimal models, we can calculate the complexity parameter:
-
-``` R
-printcp(dt)
-```
-
-``` 
-Classification tree:
-rpart(formula = Class ~ Duration + Amount + Age, data = GermanCredit[inTrain, 
-], method = "class")
-
-Variables actually used in tree construction:
-[1] Age      Amount   Duration
-
-Root node error: 61/199 = 0.30653
-
-n= 199 
-
-CP nsplit rel error xerror    xstd
-1 0.065574      0   1.00000 1.0000 0.10662
-2 0.057377      1   0.93443 1.0984 0.10929
-3 0.032787      3   0.81967 1.0656 0.10846
-4 0.016393      5   0.75410 1.0656 0.10846
-5 0.010000      6   0.73770 1.1967 0.11145
-```
 
 In this output, the rows show result for trees with different numbers of nodes. The column `xerror` represents the cross-validation error and the `CP` represents the complexity parameter. 
 
@@ -1700,42 +1441,6 @@ Decision Tree pruning is a technique that reduces the size of decision trees by 
 
 Ultimately, our aim is to reduce the cross-validation error. First, we index with the smallest complexity parameter:
 
-``` R
-m <- which.min(dt$cptable[, "xerror"])
-```
-
-To get the optimal number of splits, we:
-
-``` R
-dt$cptable[m, "nsplit"]
-```
-
-Now, we choose the corresponding complexity parameter:
-
-``` R
-dt$cptable[m, "CP"]
-```
-
-Now, we're ready for pruning:
-
-``` R
-p <- prune(dt, cp = dt$cptable[which.min(dt$cptable[, "xerror"]), "CP"])
-plot(as.party(p))
-```
-
-### 2.3 Prediction
-
-Now we can get into the prediction portion. We can use the `predict()` function in R:
-
-``` R
-pred <- predict(p, GermanCredit[-inTrain,], type="class")
-```
-
-Now let's get the confusion matrix:
-
-``` R
-table(pred=pred, true=GermanCredit[-inTrain,]$Class)
-```
 
 ## 3.0 Random Forests
 
@@ -1768,71 +1473,12 @@ The averaging portion of the algorithm also allows the real structure of the dat
 
 Unfortunately, random forests have high memory consumption because of the many tree constructions. There's also little performance gain from larger training datasets. 
 
-### 3.4 Random Forests in R
 
-We begin by loading the required libraries and data: 
-
-``` R
-library(randomForest)
-library(caret)
-data(GermanCredit)
-```
-
-Once again, we split our data into training and test data.
-``` R
-inTrain <- runif(nrow(GermanCredit)) < 0.2
-```
-
-Now we can run the random forest algorithm on this data:
-
-``` R
-rf <- randomForest(Class ~ .,
-data=GermanCredit[inTrain,],
-ntree=100)
-```
-
-Let's take a look at the estimated error across the number of decision trees. The dotted lines represent the individual errors and the solid black line represents the overall error. 
-
-``` R
-library(rf)
-```
+==========================================================================================
 
 
-Let's check out the confusion matrix:
+# Machine Learning Optimization
 
-``` R
-rf$confusion
-```
-
-And finally, let's get back to predicting: 
-
-``` R
-pred <- predict(rf, newdata=GermanCredit[-inTrain,])
-table(pred=pred, true=GermanCredit$Class[-inTrain])
-```
-
-### 3.5 Variable Importance
-
-
-![alt text](https://github.com/lesley2958/ml-tree-modeling/blob/master/var%20importance.png?raw=true "Logo Title Text 1")
-
-``` R
-rf2 <- randomForest(Class ~ .,
-data=GermanCredit, #with full dataset
-ntree=100,
-importance=TRUE)
-```
-
-Now, let's plot it. `type` chooses the importance metirx (1 denotes the mean decrease in accuracy if the variable were randomly permuted). `n.var` denotes the number of variables:
-
-``` R
-varImpPlot(rf2, type=1, n.var=5)
-```
-
-Machine Learning Optimization
-==================
-
-Brought to you by [Lesley Cordero](http://www.columbia.edu/~lc2958), [Byte Academy](byteacademy.co), and [ADI](adicu.com).
 
 ## Table of Contents
 
@@ -1853,7 +1499,7 @@ Brought to you by [Lesley Cordero](http://www.columbia.edu/~lc2958), [Byte Acade
 
 ## 0.0 Setup
 
-TThis guide was written in Python 3.5.
+TThis guide was written in Python 3.6.
 
 ### 0.1 Python and Pip
 
@@ -1901,48 +1547,6 @@ Boosting involves training classifiers on a subset of the training data that is 
 
 The general boosting algorithm first involves fitting a simple model to subsample of the data. Next, we identify misclassified observations (ones that are hard to predict). we focus subsequent learners on these samples to get them right. Lastly, we combine these weak learners to form a more complex but accurate predictor.
 
-### 4.2 Boosting in R
-
-First, we load the required packages: 
-
-``` R
-library(mboost)
-```
-
-Through the `glmboost()` function, we can fit a generalized linear model. The difference between this function the normal `glm()` function is that the boosted version inherently performs variable selection:
-
-``` R
-m.boost <- glmboost(Class ~ Amount + Duration
-+ Personal.Female.Single,
-family=Binomial(), # needed for classification
-data=GermanCredit)
-```
-
-Let's plot the convergence of selected coefficients:
-
-``` R
-plot(m.boost, ylim=range(coef(m.boost,
-which=c("Amount", "Duration"))))
-```
-
-The main parameter for tuning is the number of iterations. Using cross-validated estimates of empirical risk, we can find the optimal number. In R, this looks like:
-
-``` R
-cv.boost <- cvrisk(m.boost)
-```
-
-With `cv.boost`, we can find the optimal number of iterations to prevent overfitting:
-
-``` R
-mstop(cv.boost)
-```
-
-Let's plot these cross-validated estimates of empirical risk: 
-
-``` R
-plot(cv.boost, main="Cross-validated estimates of empirical risk")
-```
-
 ## 5.0 AdaBoosting
 
 Now, instead of resampling, we can reweight misclassified training examples:
@@ -1954,36 +1558,6 @@ Aside from its easy implementation, AdaBoosting is great because it's a simple c
 ### 5.2 Limits
 
 On the other hand, AdaBoost is sensitive to misclassified points in the training data. 
-
-### 5.3 AdaBoost in R
-
-We begin by loading the required package: 
-
-``` R
-library(ada)
-```
-
-First, we pick a fixed number of iterations (50 in this case) and feed it along with the training data to fit the AdaBoost model:
-
-``` R
-m.ada <- ada(Class ~ .,
-data=GermanCredit[inTrain,],
-iter=50)
-```
-
-And now we evaluate on the test data:
-
-``` R
-m.ada.test <- addtest(m.ada,
-test.x=GermanCredit[-inTrain,],
-test.y=GermanCredit$Class[-inTrain])
-```
-
-Now we plot the error on training and testing data:
-
-``` R
-plot(m.ada.test, test=TRUE)
-```
 
 
 
