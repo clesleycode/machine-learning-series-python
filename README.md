@@ -4,43 +4,40 @@
 ## Table of Contents
 
 - [0.0 Setup](#00-setup)
-+ [0.1 R and R Studio](#01-r-and-r-studio)
-+ [0.2 Virtual Environment](#02-virtual-environment)
 - [1.0 Introduction](#10-introduction)
-+ [1.1 What is Machine Learning?](#11-what-is-machine-learning)
-+ [1.2 Hypothesis](#12-hypothesis)
-+ [1.3 Distribution](#13-distribution)
-+ [1.4 Notation](#14-notation)
+	+ [1.1 What is Machine Learning?](#11-what-is-machine-learning)
+	+ [1.2 Hypothesis](#12-hypothesis)
+	+ [1.3 Distribution](#13-distribution)
+	+ [1.4 Notation](#14-notation)
 - [2.0 Data](#20-data)
-+ [2.1 Labeled vs Unlabeled Data](#21-labeled-vs-unlabeled-data)
-+ [2.2 Training vs Test Data](#22-training-vs-test-data)
-+ [2.3 Overfitting vs Underfitting](#overfitting-vs-underfitting)
-+ [2.4 Open Data](#24-open-data)
+	+ [2.1 Labeled vs Unlabeled Data](#21-labeled-vs-unlabeled-data)
+	+ [2.2 Training vs Test Data](#22-training-vs-test-data)
+	+ [2.3 Overfitting vs Underfitting](#overfitting-vs-underfitting)
+	+ [2.4 Open Data](#24-open-data)
 - [3.0 Types of Learning](#30-types-of-learning)
-+ [3.1 Supervised Learning](#31-supervised-learning)
-+ [3.2 Unsupervised Learning](#32-unsupervised-learning)
-+ [3.3 Reinforcement Learning](#33-reinforcement-learning)
-+ [3.4 Subfields](#34-subfields)
+	+ [3.1 Supervised Learning](#31-supervised-learning)
+	+ [3.2 Unsupervised Learning](#32-unsupervised-learning)
+	+ [3.3 Reinforcement Learning](#33-reinforcement-learning)
+	+ [3.4 Subfields](#34-subfields)
 - [4.0 Fundamentals](#40-fundamentals)
-+ [4.1 Inputs vs Features](#41-inputs-vs-features)
-+ [4.2 Outputs vs Targets](#42-outputs-vs-targets)
-+ [4.3 Function Estimation](#43-function-estimation)
-* [4.3.1 Exploratory Analysis](#441-exploratory-analysis)
-* [4.3.2 Data Visualization](#432-data-visualization)
-* [4.3.3 Linear Model](#433-linear-model)
-+ [4.4 Bias and Variance](#44-bias-and-variance)
-* [4.4.1 Bias](#441-bias)
-* [4.4.2 Variance](#442-variance)
-* [4.4.3 Bias-Variance Tradeoff](#443-bias-variance-tradeoff)
+	+ [4.1 Inputs vs Features](#41-inputs-vs-features)
+	+ [4.2 Outputs vs Targets](#42-outputs-vs-targets)
+	+ [4.3 Function Estimation](#43-function-estimation)
+		* [4.3.1 Exploratory Analysis](#441-exploratory-analysis)
+		* [4.3.2 Data Visualization](#432-data-visualization)
+		* [4.3.3 Linear Model](#433-linear-model)
+	+ [4.4 Bias and Variance](#44-bias-and-variance)
+		* [4.4.1 Bias](#441-bias)
+		* [4.4.2 Variance](#442-variance)
+		* [4.4.3 Bias-Variance Tradeoff](#443-bias-variance-tradeoff)
 - [5.0 Optimization](#50-optimization)
-+ [5.1 Loss Function](#51-loss-function)
-+ [5.2 Boosting](#52-boosting)
-* [5.2.1 What is a weak learner?](#521-what-is-a-weak-learner)
-* [5.2.2 What is an ensemble?](#522-what-is-an-ensemble)
-+ [5.3 Occam's Razor](#53-occams-razor)
+	+ [5.1 Loss Function](#51-loss-function)
+	+ [5.2 Boosting](#52-boosting)
+		* [5.2.1 What is a weak learner?](#521-what-is-a-weak-learner)
+		* [5.2.2 What is an ensemble?](#522-what-is-an-ensemble)
+	+ [5.3 Occam's Razor](#53-occams-razor)
 - [6.0 Final Words](#60-final-words)
-+ [6.1 Resources](#61-resources)
-+ [6.2 Mini Courses](#62-mini-courses)
+	+ [6.1 Resources](#61-resources)
 
 ========================================================================
 
@@ -286,14 +283,14 @@ What we've covered here is a very small glimpse of machine learning. Applying th
 		* [1.2.1 Frequency Table](#121-frequency-table)
 		* [1.2.2 Likelihood Table](#122-likelihood-table)
 		* [1.2.3 Calculation](#123-calculation)
-  + [1.3 Naive Bayes Evaluation](#13-naive-bayes-evaluation)
-    * [1.3.1 Pros](#131-pros)
-    * [1.3.2 Cons](#132-cons)
+	+ [1.3 Naive Bayes Evaluation](#13-naive-bayes-evaluation)
+		* [1.3.1 Pros](#131-pros)
+		* [1.3.2 Cons](#132-cons)
 - [2.0 Naive Bayes Types](#20-naive-bayes-types)
 	+ [2.1 Gaussian](#21-gaussian)
 	+ [2.2 Multinomial](#22-multinomial)
 	+ [2.3 Bernoulli](#23-bernoulli)
-  + [2.4 Tips for Improvement](#24-tips-for-improvement)
+	+ [2.4 Tips for Improvement](#24-tips-for-improvement)
 - [3.0 Sentiment Analysis](#30-sentiment-analysis)
 	+ [3.1 Preparing the Data](#31-preparing-the-data)
 		* [3.1.1 Training Data](#311-training-data)
@@ -301,8 +298,6 @@ What we've covered here is a very small glimpse of machine learning. Applying th
 	+ [3.2 Building a Classifier](#32-building-a-classifier)
 	+ [3.3 Classification](#33-classification)
 	+ [3.4 Accuracy](#34-accuracy)
-
-
   
 ## Setup
 
@@ -825,50 +820,32 @@ Generative algorithms model `p(x, y)`, which can be tranformed into `p(y|x)` by 
 ## Table of Contents
 
 - [0.0 Setup](#00-setup)
-+ [0.1 R and R Studio](#01-r-and-r-studio)
-+ [0.2 Python and Pip](#02-python-and-pip)
-+ [0.3 Virtual Environment](#03-virtual-environment)
+	+ [0.1 Python and Pip](#01-python-and-pip)
 - [1.0 Introduction](#10-introduction)
 - [2.0 Nearest Neighbor](#20-nearest-neighbor)
-+ [2.1 k-Nearest Neighbor Classifier](#21-k-nearest-neighbor-classifier)
+	+ [2.1 k-Nearest Neighbor Classifier](#21-k-nearest-neighbor-classifier)
 - [3.0 Support Vector Machines](#30-support-vector-machines)
-+ [3.1 Separating Hyperplane](#31-separating-hyperlanes)
-* [3.1.1 Optimal Separating Hyperplane](#311-optimal-separating-hyperplane)
-+ [3.2 Margins](#32-margins)
-+ [3.3 Equation](#33-equations)
-* [3.3.1 Example](#331-example)
-* [3.3.2 Margin Computation](#332-margin-computation)
+	+ [3.1 Separating Hyperplane](#31-separating-hyperlanes)
+		* [3.1.1 Optimal Separating Hyperplane](#311-optimal-separating-hyperplane)
+	+ [3.2 Margins](#32-margins)
+	+ [3.3 Equation](#33-equations)
+		* [3.3.1 Example](#331-example)
+		* [3.3.2 Margin Computation](#332-margin-computation)
 - [4.0 Iris Classification](#40-iris-classification)
-+ [4.1 Kernels](#41-kernels)
-+ [4.2 Tuning](#42-tuning)
-* [4.2.1 Gamma](#421-gamma)
-* [4.2.2 C value](#422-c-value)
-+ [4.3 Evaluation](#43-evaluation)
-* [4.3.1 Pros](#431-pros)
-* [4.3.2 Cons](#432-cons)
-
+	+ [4.1 Kernels](#41-kernels)
+	+ [4.2 Tuning](#42-tuning)
+		* [4.2.1 Gamma](#421-gamma)
+		* [4.2.2 C value](#422-c-value)
+	+ [4.3 Evaluation](#43-evaluation)
+		* [4.3.1 Pros](#431-pros)
+		* [4.3.2 Cons](#432-cons)
 
 ## 0.0 Setup
 
 This guide was written in R 3.2.3.
 
-### 0.1 R and R Studio
 
-Install [R](https://www.r-project.org/) and [R Studio](https://www.rstudio.com/products/rstudio/download/).
-
-Next, to install the R packages, cd into your workspace, and enter the following, very simple, command into your bash: 
-
-```
-R
-```
-
-This will prompt a session in R! From here, you can install any needed packages. For the sake of this tutorial, enter the following into your terminal R session:
-
-```
-install.packages("RTextTools")
-```
-
-### 0.2 Python and Pip
+### 0.1 Python and Pip
 
 Download [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/stable/installing/).
 
@@ -1082,24 +1059,17 @@ SVMs largest stength is its effectiveness in high dimensional spaces, even when 
 
 Now, if we have a large dataset, the required time becomes high. SVMs also perform poorly when there's noise in the dataset. Lastly, SVM doesn’t directly provide probability estimates and must be calculated using an expensive five-fold cross-validation.
 
-
-
 ========================================================================
 
-
 # Unsupervised Machine Learning
-
 
 ## Table of Contents
 
 - [0.0 Setup](#00-setup)
-+ [0.1 Python and Pip](#01-python-and-pip)
-+ [0.2 R and R Studio](#02-r-and-r-studio)
-+ [0.3 Other](#03-other)
-+ [0.4 Virtual Environment](#04-virtual-environment)
+	+ [0.1 Python and Pip](#01-python-and-pip)
+	+ [0.1 Other](#01-other)
 - [1.0 Introduction](#10-introduction)
 - [6.0 Final Words](#50-final-words)
-+ [6.2 Mini Courses](#62-mini-courses)
 
 ## 0.0 Setup
 
@@ -1479,23 +1449,22 @@ Unfortunately, random forests have high memory consumption because of the many t
 
 # Machine Learning Optimization
 
-
 ## Table of Contents
 
 - [0.0 Setup](#00-setup)
-+ [0.1 Python and Pip](#01-python-and-pip)
-+ [0.2 Libraries](#02-libraries)
+	+ [0.1 Python and Pip](#01-python-and-pip)
+	+ [0.2 Libraries](#02-libraries)
 - [1.0 Background](#10-background)
 - [2.0 Ensemble Learning](#20-ensemble-learning)
 - [3.0 Bagging](#30-bagging)
-+ [3.1 Algorithm](#31-algorithm)
+	+ [3.1 Algorithm](#31-algorithm)
 - [4.0 Boosting](#40-boosting)
-+ [4.1 Algorithm](#41-algorithm)
-+ [4.2 Boosting in R](#42-boosting-in-r)
+	+ [4.1 Algorithm](#41-algorithm)
+	+ [4.2 Boosting in R](#42-boosting-in-r)
 - [5.0 AdaBoosting](#50-adaboosting)
-+ [5.1 Benefits](#51-benefits)
-+ [5.2 Limits](#52-limits)
-+ [5.3 AdaBoost in R](#53-adaboost-in-r)
+	+ [5.1 Benefits](#51-benefits)
+	+ [5.2 Limits](#52-limits)
+	+ [5.3 AdaBoost in R](#53-adaboost-in-r)
 
 ## 0.0 Setup
 
@@ -1558,8 +1527,3 @@ Aside from its easy implementation, AdaBoosting is great because it's a simple c
 ### 5.2 Limits
 
 On the other hand, AdaBoost is sensitive to misclassified points in the training data. 
-
-
-
-
-
