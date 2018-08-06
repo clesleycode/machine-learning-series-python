@@ -1,52 +1,6 @@
 # Machine Learning with Python
 
 
-
-
-
-
-==========================================================================================
-
-# Machine Learning & Tree Modeling
-
-
-## Table of Contents
-
-- [0.0 Setup](#00-setup)
-+ [0.1 Python and Pip](#01-python-and-pip)
-+ [0.2 Libraries](#02-libraries)
-+ [0.3 R and RStudio](#03-r-and-rstudio)
-- [1.0 Background](#10-background)
-- [2.0 Decision Trees](#20-decision-trees)
-+ [2.1 Decision Trees in R](#21-decision-trees-in-r)
-+ [2.2 Pruning Decision Trees](#22-pruning-decision-trees)
-+ [2.3 Prediction](#23-prediction)
-- [3.0 Random Forests](#30-random-forests)
-+ [3.1 Algorithm](#31-algorithm)
-+ [3.2 Advantages](#32-advantages)
-+ [3.3 Limitations](#33-limitations)
-+ [3.4 Random Forests in R](#34-random-forests-in-r)
-+ [3.5 Variable Importance](#35-variable-importance)
-
-
-## 0.0 Setup
-
-TThis guide was written in Python 3.6.
-
-### 0.1 Python and Pip
-
-Download [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/stable/installing/).
-
-### 0.2 Libraries
-
-Let's install the modules we'll need for this tutorial. Open up your terminal and enter the following commands to install the needed python modules:
-
-```
-pip3 install scipy
-pip3 install numpy
-```
-
-
 ## 1.0 Background
 
 Recall in data structures learning about the different types of tree structures - binary, red black, and splay trees. In tree based modeling, we work off these structures for classification prediction. 
